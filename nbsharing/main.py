@@ -4,10 +4,12 @@ from flask import make_response
 import hashlib
 from google.cloud import storage
 from io import StringIO
+from os import path
 
 
 BUCKET_NAME = "cdn.nbsharing.com"
 BUCKET_URL_PREFIX = "https://"
+HTML_TEMPLATE_PATH = path.join(path.abspath(path.dirname(__file__)), "templates/nbsharing_default.tpl")
 
 def cors(f):
     def new_f(*args, **kwargs):
@@ -27,6 +29,7 @@ def convert_notebook_to_html(notebook_file):
     notebook = nbformat.read(notebook_file, as_version=4)
     notebook_file.seek(0)
     html_exporter = HTMLExporter()
+    html_exporter.template_file = HTML_TEMPLATE_PATH
     body, _ = html_exporter.from_notebook_node(notebook)
     return StringIO(body)
 
