@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="favicon.ico">
+
+    <title>nbsharing.com - sharing your jupyter notebooks amongst your colleagues</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <!-- Custom styles for this template -->
+    <link href="dist/css/main.css" rel="stylesheet">
+  </head>
+
+  <body class="text-center">
+
+    <div class="overlay d-none">
+      <div class="loader"></div>
+    </div>
+
+    <div id="dropzone">
+      <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+      <header class="masthead mb-auto">
+        <div class="inner">
+          <h3 class="masthead-brand">nbsharing.com</h3>
+          <nav class="nav nav-masthead justify-content-center">
+          </nav>
+        </div>
+      </header>
+
+      <main role="main" class="inner cover">
+        <p class="lead"><strong><em>nbsharing</em></strong> is the easiest way to distribute your jupyter notebook reports amongst your colleagues.</p>
+        <p class="lead">Simply drop your notebook (.ipynb file) here and you'll get a unique URL you can easily share with them.</p>
+        <div class="row mb-3">
+          <div class="col offset-2 col-8">
+            <div class="input-group">
+              <div class="custom-file">
+                <input type="file" class="custom-file-input" id="notebookFileUpload" aria-describedby="inputGroupFileAddon04">
+                <label class="custom-file-label" id="notebookFileUploadLabel" for="notebookFileUpload">Select a notebook</label>
+              </div>
+              <div class="input-group-append">
+                <button class="btn btn-outline-secondary" type="button" id="uploadButton">Upload</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+            <div class="offset-2 col-8">
+              <div class="input-group">
+                  <input type="text" class="form-control" id="notebookLink" value="Your link goes here" onClick="this.select();" readonly>
+              </div>
+            </div>
+          </div>
+      </main>
+
+      <footer class="mastfoot mt-auto">
+        <div class="inner">
+          <p class="text-muted">For data scientists, from data scientists. With ❤️</p>
+        </div>
+      </footer>
+    </div>
+    </div>
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="dist/js/main.js"></script>
+  </body>
+</html>
