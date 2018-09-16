@@ -9,6 +9,7 @@ e.preventDefault();
 },false);
 
 var dragCounter = 0;
+var ENDPOINT_LOCATION = String(window.location).includes("nbsharing.com") ? "https://europe-west1-sacred-garden-192600.cloudfunctions.net" : ""
 
 $(document).ready(function() {
 $('#dropzone').on('dragenter', function(e){
@@ -49,7 +50,7 @@ $("#uploadButton").on("click", function() {
     $(".overlay").removeClass("d-none")
     var formData = new FormData();
     formData.append("notebook", $("#notebookFileUpload")[0].files[0])
-    fetch("/api/convert", {
+    fetch(ENDPOINT_LOCATION + "/nbconvert", {
     body: formData,
     method: "post"
     }).then(function(response) {
