@@ -5,6 +5,7 @@ import hashlib
 from google.cloud import storage
 from io import StringIO
 from os import path
+import logging
 
 
 BUCKET_NAME = "cdn.nbsharing.com"
@@ -51,7 +52,8 @@ def nbconvert(request):
         
         upload_to_gcloud(notebook_file, notebook_ipynb_filename)
         upload_to_gcloud(notebook_html, notebook_html_filename, content_type="text/html")
-    except Exception:
+    except Exception as e:
+        logging.exception("Couldn't transform the notebook")
         return "Oops! 🙊 Something went wrong. Please try again."
     
     return BUCKET_URL_PREFIX + BUCKET_NAME + "/" + notebook_html_filename
